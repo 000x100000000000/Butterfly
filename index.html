@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>蝶舞香港：香港常見蝴蝶探索與保育教育網 | Butterflies of Hong Kong: Exploration & Conservation</title>
+  <meta name="description" content="香港常見蝴蝶探索與保育教育網：蝴蝶圖鑑、保育資訊、互動小測驗、配對遊戲及 AI 蝴蝶導師。Explore Hong Kong butterflies: species guide, conservation, quiz, matching game and AI tutor." />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/svg/favicon.svg" />
+</head>
+<body class="min-h-screen flex flex-col mode-bi">
+<body class="min-h-screen flex flex-col mode-bi">
+
+  <!-- Sticky Navigation Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-emerald-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center justify-between py-3 gap-3">
+        <!-- Brand -->
+        <div class="flex items-center gap-3 cursor-pointer" id="brandHomeBtn">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white font-bold text-xl shadow-sm">
+            🦋
+          </div>
+          <div>
+            <h1 class="text-base sm:text-lg font-bold text-emerald-950 tracking-tight">
+              <span class="lang-zh">蝶舞香港 · 生態教育網</span>
+              <span class="lang-en text-xs sm:text-sm font-semibold text-emerald-800 block">Butterflies of Hong Kong · Eco-Education Portal</span>
+            </h1>
+            <p class="text-[11px] text-emerald-700 hidden xl:block">
+              <span class="lang-zh">認識香港常見蝴蝶、延伸閱讀短片、保育資訊與互動小測驗</span>
+              <span class="lang-en"> · Explore Common HK Butterflies, Videos, Conservation & Quiz</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-1" aria-label="主要導覽 Main Navigation">
+          <button type="button" data-tab="species" class="tab-btn active px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-emerald-50 transition whitespace-nowrap text-left">
+            <span class="lang-zh block">🦋 5種常見蝴蝶圖鑑</span>
+            <span class="lang-en block text-[11px] opacity-90">5 Common Butterflies</span>
+          </button>
+          <button type="button" data-tab="resources" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-emerald-50 transition whitespace-nowrap text-left">
+            <span class="lang-zh block">📺 參考資訊與額外知識</span>
+            <span class="lang-en block text-[11px] opacity-90">Resources & Extra Facts</span>
+          </button>
+          <button type="button" data-tab="conservation" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-emerald-50 transition whitespace-nowrap text-left">
+            <span class="lang-zh block">🌿 蝴蝶保育專頁</span>
+            <span class="lang-en block text-[11px] opacity-90">Butterfly Conservation</span>
+          </button>
+          <button type="button" data-tab="quiz" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-emerald-50 transition whitespace-nowrap text-left">
+            <span class="lang-zh block">📝 10題互動小測驗</span>
+            <span class="lang-en block text-[11px] opacity-90">10-Question Quiz</span>
+          </button>
+          <button type="button" data-tab="matching" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-emerald-50 transition whitespace-nowrap text-left">
+            <span class="lang-zh block">🧩 蝴蝶生長過程配對</span>
+            <span class="lang-en block text-[11px] opacity-90">Life Cycle Matching</span>
+          </button>
+          <button type="button" data-tab="chatbot" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-emerald-50 transition whitespace-nowrap text-left">
+            <span class="lang-zh block">🤖 AI 蝴蝶導師</span>
+            <span class="lang-en block text-[11px] opacity-90">AI Butterfly Tutor</span>
+          </button>
+        </nav>
+
+        <!-- Language Switcher & Share Link Action -->
+        <div class="flex items-center gap-2">
+          <div class="inline-flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200" role="group" aria-label="語言切換 Language Mode">
+            <button type="button" data-lang-mode="bi" class="lang-pill active px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-700 transition">
+              中/EN 雙語
+            </button>
+            <button type="button" data-lang-mode="zh" class="lang-pill px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-700 transition">
+              中文
+            </button>
+            <button type="button" data-lang-mode="en" class="lang-pill px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-700 transition">
+              EN
+            </button>
+          </div>
+
+          <!-- 登入 / 使用者選單 -->
+          <button type="button" id="loginBtn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition">
+            <span>🎒</span>
+            <span class="hidden md:inline">
+              <span class="lang-zh">登入</span>
+              <span class="lang-en">Log In</span>
+            </span>
+          </button>
+
+          <button type="button" id="userChip" class="user-chip hidden">
+            <span class="user-avatar" data-user-initial">?</span>
+            <span class="hidden lg:flex flex-col items-start leading-tight">
+              <span data-user-name class="max-w-[8rem] truncate">使用者</span>
+              <span data-role-badge class="text-[9px] font-bold text-emerald-600">🎒 Student</span>
+            </span>
+          </button>
+
+          <button type="button" id="teacherPanelBtn" class="hidden inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-bold transition">
+            <span>👩‍🏫</span>
+            <span class="hidden md:inline">
+              <span class="lang-zh">教師儀表板</span>
+              <span class="lang-en">Teacher Dashboard</span>
+            </span>
+          </button>
+
+          <button type="button" id="shareSiteBtn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-medium transition">
+            <span>🔗</span>
+            <span class="hidden md:inline">
+              <span class="lang-zh">分享連結</span>
+              <span class="lang-en">Share</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="relative bg-emerald-950 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-45">
+      <img src="assets/img/hero.jpg" alt="香港蝴蝶生態棲息地 Hong Kong Butterfly Habitat" class="w-full h-full object-cover max-w-full" />
+      <div class="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-900/75 to-transparent"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-500/40 text-emerald-100 text-xs font-medium">
+          <span>🌱 <span class="lang-zh">香港生物多樣性自然教育資源</span> <span class="lang-en">Hong Kong Biodiversity Nature Education Resource</span></span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+          <span class="lang-zh block">探索「蝴蝶天堂」：認識香港常見蝴蝶與生態保育</span>
+          <span class="lang-en block text-lg sm:text-2xl text-emerald-200 font-bold mt-1">Exploring the "Butterfly Paradise": Common Butterflies & Conservation in Hong Kong</span>
+        </h2>
+        <div class="space-y-2 text-sm sm:text-base text-emerald-100/95 leading-relaxed">
+          <p class="lang-zh">
+            根據<a href="https://www.afcd.gov.hk/tc_chi/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="underline decoration-emerald-300 hover:text-amber-300 font-medium">漁農自然護理署（香港物種：蝴蝶）</a>資料，香港面積雖小，卻記錄了<strong>249種蝴蝶</strong>（分屬6個科），約佔全中國蝴蝶物種總數的11%。本網站為學生與公眾介紹5種香港具代表性的常見蝴蝶、YouTube教學短片、保育策略及10題四選一互動測驗。
+          </p>
+          <p class="lang-en text-xs sm:text-sm text-emerald-200/95">
+            According to the <a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="underline decoration-emerald-300 hover:text-amber-300 font-medium">Agriculture, Fisheries and Conservation Department (AFCD - Butterflies of HK)</a>, despite its small land area, Hong Kong has recorded <strong>249 butterfly species</strong> across 6 families—representing about 11% of all butterfly species in China. This website introduces 5 iconic common butterflies in Hong Kong, educational YouTube videos, conservation strategies, and a 10-question multiple-choice quiz.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <button type="button" id="heroGoQuizBtn" class="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm shadow transition">
+            🎯 <span class="lang-zh">立即挑戰 10 題蝴蝶測驗</span> <span class="lang-en">Take the 10-Question Quiz</span>
+          </button>
+          <button type="button" id="heroGoConservationBtn" class="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/30 font-semibold text-sm backdrop-blur transition">
+            🌿 <span class="lang-zh">了解香港蝴蝶保育工作</span> <span class="lang-en">Explore Butterfly Conservation</span>
+          </button>
+          <button type="button" id="heroGoMatchingBtn" class="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/30 font-semibold text-sm backdrop-blur transition">
+            🧩 <span class="lang-zh">玩配對遊戲</span> <span class="lang-en">Play Matching Game</span>
+          </button>
+          <button type="button" id="heroGoChatbotBtn" class="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/30 font-semibold text-sm backdrop-blur transition">
+            🤖 <span class="lang-zh">問問 AI 蝴蝶導師</span> <span class="lang-en">Ask the AI Tutor</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Ecological Stats Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 pt-6 border-t border-white/15">
+        <div class="bg-white/10 backdrop-blur rounded-xl p-3.5 border border-white/10">
+          <p class="text-xs text-emerald-200">
+            <span class="lang-zh block">香港記錄蝴蝶物種</span>
+            <span class="lang-en block text-[11px] opacity-90">Recorded Butterfly Species</span>
+          </p>
+          <p class="text-xl sm:text-2xl font-bold text-white mt-0.5">
+            <span class="lang-zh">249 種</span> <span class="lang-en text-base sm:text-xl">249 Species</span>
+          </p>
+          <a href="https://bih.gov.hk/tc/species-database/index.html" target="_blank" rel="noopener noreferrer" class="text-[11px] text-amber-300 underline hover:text-amber-200">
+            <span class="lang-zh">香港生物多樣性資訊站</span> <span class="lang-en">HKBIH Database</span> ↗
+          </a>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-3.5 border border-white/10">
+          <p class="text-xs text-emerald-200">
+            <span class="lang-zh block">授粉依賴植物</span>
+            <span class="lang-en block text-[11px] opacity-90">Butterfly-Pollinated Flora</span>
+          </p>
+          <p class="text-xl sm:text-2xl font-bold text-white mt-0.5">
+            <span class="lang-zh">至少 6 種本地植物</span> <span class="lang-en text-base sm:text-xl">6+ Native Flora</span>
+          </p>
+          <a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-[11px] text-amber-300 underline hover:text-amber-200">
+            <span class="lang-zh">漁護署物種報告</span> <span class="lang-en">AFCD Species Report</span> ↗
+          </a>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-3.5 border border-white/10">
+          <p class="text-xs text-emerald-200">
+            <span class="lang-zh block">保護區覆蓋率</span>
+            <span class="lang-en block text-[11px] opacity-90">Protected Area Coverage</span>
+          </p>
+          <p class="text-xl sm:text-2xl font-bold text-white mt-0.5">
+            <span class="lang-zh">約 99% 品種</span> <span class="lang-en text-base sm:text-xl">~99% of Species</span>
+          </p>
+          <a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-[11px] text-amber-300 underline hover:text-amber-200">
+            <span class="lang-zh">郊野公園及特別地區</span> <span class="lang-en">Country Parks & Special Areas</span> ↗
+          </a>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-3.5 border border-white/10">
+          <p class="text-xs text-emerald-200">
+            <span class="lang-zh block">鳳園具特殊科學價值地點</span>
+            <span class="lang-en block text-[11px] opacity-90">Fung Yuen Valley SSSI</span>
+          </p>
+          <p class="text-xl sm:text-2xl font-bold text-white mt-0.5">
+            <span class="lang-zh">逾 200 種蝴蝶</span> <span class="lang-en text-base sm:text-xl">200+ Species</span>
+          </p>
+          <a href="https://www.fungyuen.org/" target="_blank" rel="noopener noreferrer" class="text-[11px] text-amber-300 underline hover:text-amber-200">
+            <span class="lang-zh">鳳園蝴蝶保育區</span> <span class="lang-en">Fung Yuen Butterfly Reserve</span> ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- ==================== PAGE 1: 5 COMMON BUTTERFLIES ==================== -->
+    <section id="page-species" class="space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-5">
+        <div class="space-y-1.5">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-md">
+            <span class="lang-zh">第 1 部分 · 香港常見蝴蝶圖鑑</span>
+            <span class="lang-en">Part 1 · Common Butterflies of Hong Kong</span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
+            <span class="lang-zh block">認識 5 種香港常見蝴蝶</span>
+            <span class="lang-en block text-lg sm:text-xl text-emerald-800 font-semibold">Discover 5 Common Butterfly Species in Hong Kong</span>
+          </h2>
+          <p class="text-sm text-slate-600 lang-zh">
+            資料整合自<a href="https://butterfly.greenpower.org.hk/butterfly-commonbutterfly" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline font-medium">綠色力量「全城愛蝶」香港常見蝴蝶資料庫</a>及<a href="https://www.lcsd.gov.hk/tc/green/butterfly/butterfly_watching/section4_hkp_02.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline font-medium">康樂及文化事務署市區公園蝴蝶指南</a>。點擊卡片上的「查看完整檔案」可查閱中英雙語進階生態知識。
+          </p>
+          <p class="text-xs sm:text-sm text-slate-500 lang-en">
+            Compiled from <a href="https://butterfly.greenpower.org.hk/eng/butterfly-commonbutterfly" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline font-medium">Green Power's "Common Butterflies in Hong Kong"</a> and the <a href="https://hkp.lcsd.gov.hk/en/facilities/conservation-corner" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline font-medium">LCSD Urban Park Butterfly Guide</a>. Click any card for detailed bilingual ecological profiles.
+          </p>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" data-family="all" class="filter-pill active px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-200 text-slate-700 transition">
+            <span class="lang-zh">全部</span> <span class="lang-en">All</span> (5)
+          </button>
+          <button type="button" data-family="鳳蝶科" class="filter-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-200 text-slate-700 transition">
+            <span class="lang-zh">鳳蝶科</span> <span class="lang-en">Papilionidae</span> (2)
+          </button>
+          <button type="button" data-family="粉蝶科" class="filter-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-200 text-slate-700 transition">
+            <span class="lang-zh">粉蝶科</span> <span class="lang-en">Pieridae</span> (1)
+          </button>
+          <button type="button" data-family="斑蝶 / 蛺蝶科" class="filter-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-200 text-slate-700 transition">
+            <span class="lang-zh">斑蝶 / 蛺蝶科</span> <span class="lang-en">Nymphalidae</span> (2)
+          </button>
+        </div>
+      </div>
+
+      <!-- Species Cards Grid -->
+      <div id="speciesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <!-- Comparison Table of the 5 Butterflies -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="px-6 py-4 bg-emerald-50/70 border-b border-slate-200 flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">
+              📊 <span class="lang-zh">五種香港常見蝴蝶中英對照速覽表</span>
+              <span class="lang-en text-base font-semibold text-emerald-900 block sm:inline sm:ml-2">Quick Reference Table of the 5 Common Butterflies</span>
+            </h3>
+            <p class="text-xs text-slate-600">
+              <span class="lang-zh">溫習重點特徵，為稍後的 10 題多項選擇題測試做好準備！</span>
+              <span class="lang-en">Review these key identification traits and habits before taking the 10-question multiple-choice quiz!</span>
+            </p>
+          </div>
+          <button type="button" id="tableGoQuizBtn" class="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold transition">
+            <span class="lang-zh">前往測試</span> <span class="lang-en">Go to Quiz</span> ➔
+          </button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-slate-700 border-b border-slate-200">
+                <th class="py-3 px-4 font-semibold">
+                  <span class="lang-zh block">中英文名稱及學名</span>
+                  <span class="lang-en block text-xs text-slate-500">Name & Scientific Name</span>
+                </th>
+                <th class="py-3 px-4 font-semibold">
+                  <span class="lang-zh block">科屬分類</span>
+                  <span class="lang-en block text-xs text-slate-500">Family</span>
+                </th>
+                <th class="py-3 px-4 font-semibold">
+                  <span class="lang-zh block">展翅寬度</span>
+                  <span class="lang-en block text-xs text-slate-500">Wingspan</span>
+                </th>
+                <th class="py-3 px-4 font-semibold">
+                  <span class="lang-zh block">最顯著辨識特徵</span>
+                  <span class="lang-en block text-xs text-slate-500">Key Identification Features</span>
+                </th>
+                <th class="py-3 px-4 font-semibold">
+                  <span class="lang-zh block">生態習性重點</span>
+                  <span class="lang-en block text-xs text-slate-500">Ecological Habits</span>
+                </th>
+                <th class="py-3 px-4 font-semibold">
+                  <span class="lang-zh block">參考資料</span>
+                  <span class="lang-en block text-xs text-slate-500">Reference</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-4 font-bold text-emerald-900">
+                  <span class="lang-zh block">1. 玉帶鳳蝶</span>
+                  <span class="lang-en block text-xs font-semibold text-slate-800">Common Mormon</span>
+                  <span class="text-xs italic font-normal text-slate-500">Papilio polytes</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">鳳蝶科</span>
+                  <span class="lang-en block text-xs text-slate-500">Papilionidae</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">8–10 厘米</span>
+                  <span class="lang-en block text-xs text-slate-500">8–10 cm</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">黑翅有尾突，後翅有一列明顯的<strong>乳白色橫紋</strong>（如玉帶）；雌蝶另有白斑型</span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1">Black wings with tails; a prominent band of <strong>creamy-white spots</strong> across the hindwings; females also have a white-spotted mimetic form.</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">幼蟲嗜食芸香科（如柑橘屬），市區公園極常見</span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1">Larvae feed on Rutaceae (e.g., <em>Citrus</em>); very common in urban parks.</span>
+                </td>
+                <td class="py-3 px-4"><a href="https://zh.wikipedia.org/zh-tw/%E7%8E%89%E5%B8%B6%E9%B3%B3%E8%9D%B6" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline text-xs">Wikipedia ↗</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-4 font-bold text-emerald-900">
+                  <span class="lang-zh block">2. 巴黎翠鳳蝶</span>
+                  <span class="lang-en block text-xs font-semibold text-slate-800">Paris Peacock</span>
+                  <span class="text-xs italic font-normal text-slate-500">Papilio paris</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">鳳蝶科</span>
+                  <span class="lang-en block text-xs text-slate-500">Papilionidae</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">8–10 厘米</span>
+                  <span class="lang-en block text-xs text-slate-500">8–10 cm</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">黑翅滿布閃亮綠色鱗點，後翅有耀眼<strong>紫藍色大斑紋</strong>及黑色長翅尾</span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1">Black wings dusted with glittering green scales; a dazzling <strong>metallic turquoise-blue patch</strong> and long black tails on the hindwings.</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">體型頗大，喜愛在林緣及溪流旁滑翔飛行</span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1">Large size; fond of gliding flight along woodland edges and streams.</span>
+                </td>
+                <td class="py-3 px-4"><a href="https://zh.wikipedia.org/zh-tw/%E5%B7%B4%E9%BB%8E%E7%BF%A0%E9%B3%B3%E8%9D%B6" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline text-xs">Wikipedia ↗</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-4 font-bold text-emerald-900">
+                  <span class="lang-zh block">3. 報喜斑粉蝶</span>
+                  <span class="lang-en block text-xs font-semibold text-slate-800">Red-base Jezebel</span>
+                  <span class="text-xs italic font-normal text-slate-500">Delias pasithoe</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">粉蝶科</span>
+                  <span class="lang-en block text-xs text-slate-500">Pieridae</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">4–5 厘米</span>
+                  <span class="lang-en block text-xs text-slate-500">4–5 cm</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">翅底黑色配白斑，後翅有鮮艷<strong>黃斑</strong>及位於翅基部的<strong>鮮紅斑</strong></span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1">Black underside with white markings; hindwing features bright <strong>yellow patches</strong> and vivid <strong>red spots at the wing base</strong>.</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">喜歡「寫意地」低飛，幼蟲以桑寄生植物為食，全年四季可見</span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1">Flies leisurely and low; larvae feed on mistletoes (Loranthaceae); seen year-round.</span>
+                </td>
+                <td class="py-3 px-4"><a href="https://zh.wikipedia.org/zh-tw/%E8%B1%94%E7%B2%89%E8%9D%B6" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline text-xs">Wikipedia ↗</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-4 font-bold text-emerald-900">
+                  <span class="lang-zh block">4. 虎斑蝶</span>
+                  <span class="lang-en block text-xs font-semibold text-slate-800">Common Tiger</span>
+                  <span class="text-xs italic font-normal text-slate-500">Danaus genutia</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">蛺蝶科（斑蝶亞科）</span>
+                  <span class="lang-en block text-xs text-slate-500">Nymphalidae (Danainae)</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">7–8 厘米</span>
+                  <span class="lang-en block text-xs text-slate-500">7–8 cm</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">翅膀<strong>橙紅色配粗黑翅脈</strong>，外緣黑框有白點，外型酷似老虎斑紋</span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1"><strong>Orange-red wings with bold black veins</strong> and white marginal spots, resembling tiger stripes.</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">雄蝶後翅有一黑色香鱗袋；具<strong>集體遷移和越冬</strong>習性</span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1">Males have a black scent pouch on the hindwing; exhibits <strong>mass migration and overwintering</strong> behavior.</span>
+                </td>
+                <td class="py-3 px-4"><a href="https://zh.wikipedia.org/zh-tw/%E8%99%8E%E6%96%91%E8%9D%B6" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline text-xs">Wikipedia ↗</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-4 font-bold text-emerald-900">
+                  <span class="lang-zh block">5. 網絲蛺蝶</span>
+                  <span class="lang-en block text-xs font-semibold text-slate-800">Map Wing</span>
+                  <span class="text-xs italic font-normal text-slate-500">Cyrestis thyodamas</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">蛺蝶科（絲蛺蝶亞科）</span>
+                  <span class="lang-en block text-xs text-slate-500">Nymphalidae (Cyrestinae)</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">4.5–5 厘米</span>
+                  <span class="lang-en block text-xs text-slate-500">4.5–5 cm</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">半透明白翅佈滿縱橫交錯的褐色細線，酷似地圖花紋，俗稱<strong>「地圖蝶」</strong></span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1">Translucent white wings crossed by fine brown lines resembling contour maps; nicknamed <strong>"Map Butterfly"</strong>.</span>
+                </td>
+                <td class="py-3 px-4">
+                  <span class="lang-zh block">翅緣呈不規則波紋並長有小翅尾；成蝶喜愛群聚於溪邊潮濕地面吸水</span>
+                  <span class="lang-en block text-xs text-slate-600 mt-1">Scalloped wing margins with short tails; adults often mud-puddle on damp ground near forest streams.</span>
+                </td>
+                <td class="py-3 px-4"><a href="https://zh.wikipedia.org/zh-tw/%E7%B6%B2%E7%B5%B2%E8%9B%BA%E8%9D%B6" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline text-xs">Wikipedia ↗</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 2: EXTRA KNOWLEDGE & YOUTUBE VIDEOS ==================== -->
+    <section id="page-resources" class="space-y-8 hidden">
+      <div class="border-b border-slate-200 pb-5 space-y-1.5">
+        <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-100 px-2.5 py-1 rounded-md">
+          <span class="lang-zh">第 2 部分 · 參考資訊與額外知識</span>
+          <span class="lang-en">Part 2 · Reference Materials & Extra Knowledge</span>
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
+          <span class="lang-zh block">學生自學專區：YouTube 教學短片與延伸閱讀</span>
+          <span class="lang-en block text-lg sm:text-xl text-teal-800 font-semibold">Student Learning Hub: Educational YouTube Videos & Further Reading</span>
+        </h2>
+        <p class="text-sm text-slate-600 lang-zh">
+          透過精選的香港蝴蝶紀錄短片、政府及環保團體的科學資料庫，深入了解蝴蝶的成長四部曲、身體構造與賞蝶禮儀。
+        </p>
+        <p class="text-xs sm:text-sm text-slate-500 lang-en">
+          Explore curated Hong Kong butterfly documentaries and scientific databases from government and conservation groups to learn about complete metamorphosis, butterfly anatomy, and field observation etiquette.
+        </p>
+      </div>
+
+      <!-- YouTube Video Learning Hub -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span>🎬</span>
+            <span>
+              <span class="lang-zh">精選 YouTube 蝴蝶學習短片（點擊可直接觀看）</span>
+              <span class="lang-en text-base text-slate-700 font-semibold block sm:inline sm:ml-2">Featured Educational YouTube Videos (Click to Watch)</span>
+            </span>
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Video 1 -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between card-hover">
+            <div>
+              <div class="bg-gradient-to-br from-rose-600 to-amber-600 p-5 text-white relative">
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-black/30 px-2.5 py-1 rounded-full">香港特區政府新聞處 ISD · HKSAR Gov</span>
+                <h4 class="text-lg font-bold mt-2 leading-snug">
+                  <span class="lang-zh block">《與蝶有緣》漁護署蝴蝶生態調查員專訪</span>
+                  <span class="lang-en block text-sm font-semibold text-rose-100 mt-1">"A Bond with Butterflies" – AFCD Ecological Surveyor Interview</span>
+                </h4>
+                <p class="text-xs text-rose-100 mt-1">3:46 · <span class="lang-zh">生態調查與越冬斑蝶習性</span> <span class="lang-en">Ecological Surveys & Overwintering Danainae</span></p>
+              </div>
+              <div class="p-5 space-y-2">
+                <p class="text-sm text-slate-700 leading-relaxed lang-zh">
+                  跟隨<a href="https://www.news.gov.hk/chi/2018/12/20181227/20181227_174834_593.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">漁護署蝴蝶工作小組生態調查員</a>走進郊野，了解斑蝶集體越冬、交配繁殖及香港蝴蝶普查的科學方法。
+                </p>
+                <p class="text-xs text-slate-600 leading-relaxed lang-en">
+                  Follow an <a href="https://www.news.gov.hk/chi/2018/12/20181227/20181227_174834_593.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">AFCD Butterfly Working Group ecological surveyor</a> into the countryside to learn about overwintering Milkweed butterflies, mating behavior, and scientific survey methods.
+                </p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-2">
+              <a href="http://www.youtube.com/watch?v=UQapaiP-mO8" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs sm:text-sm font-semibold transition">
+                <span>▶️</span> <span class="lang-zh">前往 YouTube 觀看短片</span> <span class="lang-en">Watch on YouTube</span> ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between card-hover">
+            <div>
+              <div class="bg-gradient-to-br from-emerald-600 to-teal-700 p-5 text-white relative">
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-black/30 px-2.5 py-1 rounded-full">香港蝴蝶分類導覽 · Taxonomy Guide</span>
+                <h4 class="text-lg font-bold mt-2 leading-snug">
+                  <span class="lang-zh block">《香港蝴蝶十科》分類介紹</span>
+                  <span class="lang-en block text-sm font-semibold text-emerald-100 mt-1">"10 Families of Butterflies in Hong Kong"</span>
+                </h4>
+                <p class="text-xs text-emerald-100 mt-1">2:15 · <span class="lang-zh">認識鳳蝶、粉蝶、斑蝶等分類</span> <span class="lang-en">Swallowtails, Whites, Tigers & Nymphs</span></p>
+              </div>
+              <div class="p-5 space-y-2">
+                <p class="text-sm text-slate-700 leading-relaxed lang-zh">
+                  快速認識香港傳統十科（或最新分類六科）蝴蝶的外觀差異，幫助同學在野外分辨鳳蝶、粉蝶、灰蝶、弄蝶與蛺蝶。
+                </p>
+                <p class="text-xs text-slate-600 leading-relaxed lang-en">
+                  Quickly learn the visual differences among Hong Kong's butterfly families (traditionally 10 families, or 6 families in modern taxonomy) to identify Swallowtails, Pierids, Lycaenids, Skippers, and Nymphalids in the field.
+                </p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-2">
+              <a href="http://www.youtube.com/watch?v=kOFmsT7DiU8" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold transition">
+                <span>▶️</span> <span class="lang-zh">前往 YouTube 觀看短片</span> <span class="lang-en">Watch on YouTube</span> ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between card-hover">
+            <div>
+              <div class="bg-gradient-to-br from-indigo-600 to-sky-600 p-5 text-white relative">
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-black/30 px-2.5 py-1 rounded-full">全城愛蝶 · Butterfly Care</span>
+                <h4 class="text-lg font-bold mt-2 leading-snug">
+                  <span class="lang-zh block">《為蝴蝶做「人口普查」！守護蝴蝶天堂》</span>
+                  <span class="lang-en block text-sm font-semibold text-indigo-100 mt-1">"Conducting a Butterfly Census! Protecting HK's Butterfly Paradise"</span>
+                </h4>
+                <p class="text-xs text-indigo-100 mt-1">2:53 · <span class="lang-zh">公民科學與蝴蝶普查員</span> <span class="lang-en">Citizen Science & Butterfly Surveyors</span></p>
+              </div>
+              <div class="p-5 space-y-2">
+                <p class="text-sm text-slate-700 leading-relaxed lang-zh">
+                  介紹綠色力量如何培訓市民成為「蝴蝶普查員」，透過定期記錄蝴蝶品種與數量變化，監測香港生境健康與氣候變化影響。
+                </p>
+                <p class="text-xs text-slate-600 leading-relaxed lang-en">
+                  Learn how Green Power trains citizen scientists as "Butterfly Surveyors" to monitor habitat health and climate change impacts by recording butterfly species richness and population trends.
+                </p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-2">
+              <a href="http://www.youtube.com/watch?v=Tnpp77uoiqY" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-semibold transition">
+                <span>▶️</span> <span class="lang-zh">前往 YouTube 觀看短片</span> <span class="lang-en">Watch on YouTube</span> ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Video 4 -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between card-hover">
+            <div>
+              <div class="bg-gradient-to-br from-amber-600 to-orange-600 p-5 text-white relative">
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-black/30 px-2.5 py-1 rounded-full">實地微距生態紀錄 · Field Footage</span>
+                <h4 class="text-lg font-bold mt-2 leading-snug">
+                  <span class="lang-zh block">《報喜斑粉蝶、虎斑蝶、網絲蛺蝶等香港九科蝴蝶實錄》</span>
+                  <span class="lang-en block text-sm font-semibold text-amber-100 mt-1">"Field Footage: Red-base Jezebel, Common Tiger, Map Wing & More"</span>
+                </h4>
+                <p class="text-xs text-amber-100 mt-1">2:46 · <span class="lang-zh">觀察真實翅膀花紋與訪花動作</span> <span class="lang-en">Close-up Wing Patterns & Nectar Feeding</span></p>
+              </div>
+              <div class="p-5 space-y-2">
+                <p class="text-sm text-slate-700 leading-relaxed lang-zh">
+                  一次過觀察本網站介紹的<strong>報喜斑粉蝶</strong>、<strong>虎斑蝶</strong>及<strong>網絲蛺蝶（地圖蝶）</strong>在自然環境中的飛行與吸食花蜜姿態。
+                </p>
+                <p class="text-xs text-slate-600 leading-relaxed lang-en">
+                  Observe close-up field footage of the <strong>Red-base Jezebel</strong>, <strong>Common Tiger</strong>, and <strong>Map Wing</strong> flying and sipping nectar in their natural habitats in Hong Kong.
+                </p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-2">
+              <a href="http://www.youtube.com/watch?v=Z7VGOCTXMRA" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-semibold transition">
+                <span>▶️</span> <span class="lang-zh">前往 YouTube 觀看短片</span> <span class="lang-en">Watch on YouTube</span> ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Video 5 -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between card-hover">
+            <div>
+              <div class="bg-gradient-to-br from-teal-700 to-emerald-800 p-5 text-white relative">
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-black/30 px-2.5 py-1 rounded-full">香港賞蝶熱點導賞 · Hotspot Tour</span>
+                <h4 class="text-lg font-bold mt-2 leading-snug">
+                  <span class="lang-zh block">《大埔鳳園蝴蝶保育區 + 沙螺洞生態導覽》</span>
+                  <span class="lang-en block text-sm font-semibold text-teal-100 mt-1">"Tai Po Fung Yuen Butterfly Reserve + Sha Lo Tung Eco-Tour"</span>
+                </h4>
+                <p class="text-xs text-teal-100 mt-1">7:27 · <span class="lang-zh">4K 粵語實地考察影片</span> <span class="lang-en">4K Field Exploration Video</span></p>
+              </div>
+              <div class="p-5 space-y-2">
+                <p class="text-sm text-slate-700 leading-relaxed lang-zh">
+                  帶領同學認識香港兩大著名蝴蝶熱點——大埔<a href="https://www.fungyuen.org/" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">鳳園蝴蝶保育區</a>及<a href="https://slt.greenpower.org.hk/eng/ecology-butterflies" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">沙螺洞</a>的生境特色與常見蝶種。
+                </p>
+                <p class="text-xs text-slate-600 leading-relaxed lang-en">
+                  Take a virtual field trip to two of Hong Kong's premier butterfly hotspots—<a href="https://www.fungyuen.org/" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">Fung Yuen Butterfly Reserve</a> and <a href="https://slt.greenpower.org.hk/eng/ecology-butterflies" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">Sha Lo Tung</a>—to see their habitats and diverse butterfly species.
+                </p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-2">
+              <a href="http://www.youtube.com/watch?v=v_wH58FSpP4" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs sm:text-sm font-semibold transition">
+                <span>▶️</span> <span class="lang-zh">前往 YouTube 觀看短片</span> <span class="lang-en">Watch on YouTube</span> ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Video 6 -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between card-hover">
+            <div>
+              <div class="bg-gradient-to-br from-purple-700 to-fuchsia-700 p-5 text-white relative">
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-black/30 px-2.5 py-1 rounded-full">鳳園蝴蝶保育區 · Fung Yuen Reserve</span>
+                <h4 class="text-lg font-bold mt-2 leading-snug">
+                  <span class="lang-zh block">《香港遊｜鳳園蝴蝶保育區 • 蝴蝶天堂實地探索》</span>
+                  <span class="lang-en block text-sm font-semibold text-purple-100 mt-1">"Exploring Fung Yuen Butterfly Reserve • Butterfly Paradise"</span>
+                </h4>
+                <p class="text-xs text-purple-100 mt-1">2:24 · <span class="lang-zh">認識蜜源植物與蝴蝶園設計</span> <span class="lang-en">Nectar Plants & Butterfly Garden Design</span></p>
+              </div>
+              <div class="p-5 space-y-2">
+                <p class="text-sm text-slate-700 leading-relaxed lang-zh">
+                  展示保育區如何透過種植本土蜜源植物和幼蟲寄主植物，吸引超過200種蝴蝶棲息及繁衍後代。
+                </p>
+                <p class="text-xs text-slate-600 leading-relaxed lang-en">
+                  Shows how the reserve attracts over 200 butterfly species to roost and breed by cultivating native nectar plants and larval host plants.
+                </p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-2">
+              <a href="http://www.youtube.com/watch?v=05fyrC6Tyhk" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs sm:text-sm font-semibold transition">
+                <span>▶️</span> <span class="lang-zh">前往 YouTube 觀看短片</span> <span class="lang-en">Watch on YouTube</span> ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Extra Science Knowledge Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Knowledge 1: Complete Metamorphosis & Ecological Role -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg">🔬</span>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">
+                <span class="lang-zh block">額外科學知識（一）：完全變態與植物授粉</span>
+                <span class="lang-en block text-sm font-semibold text-emerald-800">Extra Science Fact (1): Complete Metamorphosis & Pollination</span>
+              </h3>
+              <p class="text-xs text-slate-500">
+                <span class="lang-zh">資料來源：</span><span class="lang-en">Source: </span>
+                <a href="https://www.afcd.gov.hk/tc_chi/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">漁護署《香港物種：蝴蝶》 / AFCD HK Species - Butterflies</a>
+              </p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-slate-700 leading-relaxed">
+            <p class="lang-zh">
+              蝴蝶屬於<strong>完全變態（Complete Metamorphosis）</strong>昆蟲，一生經歷四個截然不同的階段：<strong>卵（Egg） ➔ 幼蟲（Caterpillar/Larva） ➔ 蛹（Chrysalis/Pupa） ➔ 成蟲（Adult）</strong>。
+            </p>
+            <p class="lang-en text-xs sm:text-sm text-slate-600">
+              Butterflies undergo <strong>Complete Metamorphosis</strong>, passing through four distinct life stages: <strong>Egg ➔ Larva (Caterpillar) ➔ Pupa (Chrysalis) ➔ Adult (Imago)</strong>.
+            </p>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-700 list-disc pl-5">
+            <li>
+              <span class="lang-zh block"><strong>專一的食性：</strong>蝴蝶幼蟲對「寄主植物（Host Plants）」非常挑剔，例如<a href="https://zh.wikipedia.org/zh-tw/%E7%8E%89%E5%B8%B6%E9%B3%B3%E8%9D%B6" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">玉帶鳳蝶</a>幼蟲主要取食芸香科（如柑橘）葉片，而<a href="https://zh.wikipedia.org/zh-tw/%E8%B1%94%E7%B2%89%E8%9D%B6" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">報喜斑粉蝶</a>幼蟲則取食桑寄生科植物。</span>
+              <span class="lang-en block text-xs text-slate-600 mt-0.5"><strong>Host Plant Specificity:</strong> Caterpillars only feed on specific host plants. For example, <a href="https://zh.wikipedia.org/zh-tw/%E7%8E%89%E5%B8%B6%E9%B3%B3%E8%9D%B6" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">Common Mormon</a> larvae feed on Rutaceae (citrus family), while <a href="https://zh.wikipedia.org/zh-tw/%E8%B1%94%E7%B2%89%E8%9D%B6" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">Red-base Jezebel</a> larvae feed on mistletoes (Loranthaceae).</span>
+            </li>
+            <li>
+              <span class="lang-zh block"><strong>香港植物的授粉功臣：</strong>根據<a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">漁護署引述的生態研究（Corlett 2001）</a>，香港至少有 <strong>6 種本土植物</strong>高度依賴蝴蝶傳播花粉，包括玉葉金花（<em>Mussaenda pubescens</em>）、香港大沙葉（<em>Pavetta hongkongensis</em>）、光葉海桐、山油柑、長花厚殼樹及梭羅樹。</span>
+              <span class="lang-en block text-xs text-slate-600 mt-0.5"><strong>Key Pollinators in HK:</strong> According to <a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">ecological research cited by AFCD (Corlett 2001)</a>, at least <strong>6 native flora species</strong> in Hong Kong depend on butterflies for pollination: Splash-of-white (<em>Mussaenda pubescens</em>), Hong Kong Pavetta (<em>Pavetta hongkongensis</em>), Glabrous Pittosporum, Acronychia, Long-flowered Ehretia, and Reevesia.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Knowledge 2: Observation Tips (Season, Weather, Time) -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg">🧭</span>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">
+                <span class="lang-zh block">額外科學知識（二）：最佳觀蝶時間與體溫奧秘</span>
+                <span class="lang-en block text-sm font-semibold text-amber-800">Extra Science Fact (2): Best Watching Hours & Thermoregulation</span>
+              </h3>
+              <p class="text-xs text-slate-500">
+                <span class="lang-zh">資料來源：</span><span class="lang-en">Source: </span>
+                <a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">漁護署觀蝶貼士 / AFCD Tips for Observing Butterflies</a>
+              </p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-slate-700 leading-relaxed">
+            <p class="lang-zh">
+              蝴蝶是<strong>變溫動物（Poikilotherm，又稱外溫動物）</strong>，體溫會隨環境溫度而改變。當氣溫低於 <strong>22°C</strong> 時，蝴蝶活動能力會大幅下降。
+            </p>
+            <p class="lang-en text-xs sm:text-sm text-slate-600">
+              Butterflies are <strong>poikilotherms (ectotherms)</strong> whose body temperature adjusts according to the environment. They become inactive when the temperature drops below <strong>22°C</strong>.
+            </p>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-700 list-disc pl-5">
+            <li>
+              <span class="lang-zh block"><strong>日光浴行為（Sunbathing）：</strong>清晨或雨後初晴時，蝴蝶常張開雙翅停棲在陽光充足的葉面上進行「日光浴」以提升體溫，這正是近距離觀察與拍照的最佳時機。</span>
+              <span class="lang-en block text-xs text-slate-600 mt-0.5"><strong>Sunbathing Behavior:</strong> In the morning or when the sun comes out after rain, butterflies often bask with wings spread on sunlit leaves to warm up—making it the best moment to observe them closely while they remain still.</span>
+            </li>
+            <li>
+              <span class="lang-zh block"><strong>最佳賞蝶季節與時段：</strong>香港全年平均氣溫約 22.8°C，四季皆有蝴蝶；當中以<strong>春夏之交（4月至6月）</strong>及<strong>秋季（10月至11月）</strong>種類與數量最豐富。春夏最佳觀察時段為<strong>上午 9:00–11:00 及下午 2:00–4:00</strong>；秋冬則為<strong>上午 10:00–11:00 及下午 2:00–3:00</strong>。</span>
+              <span class="lang-en block text-xs text-slate-600 mt-0.5"><strong>Peak Seasons & Hours:</strong> With an average annual temperature of 22.8°C, Hong Kong has butterflies year-round. Peak abundance occurs in <strong>spring/summer (April–June)</strong> and <strong>autumn (October–November)</strong>. Best watching hours are <strong>9:00–11:00 am & 2:00–4:00 pm</strong> in spring/summer, and <strong>10:00–11:00 am & 2:00–3:00 pm</strong> in autumn/winter.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Authoritative Further Reading Directory -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <h3 class="text-lg font-bold text-slate-900 mb-4">
+          📚 <span class="lang-zh">推薦延伸閱讀與官方資料庫連結</span>
+          <span class="lang-en text-base font-semibold text-emerald-800 block sm:inline sm:ml-2">Recommended Further Reading & Official Databases</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+          <a href="https://www.afcd.gov.hk/tc_chi/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 transition block">
+            <p class="font-bold text-emerald-900">
+              <span class="lang-zh block">漁農自然護理署：香港物種 - 蝴蝶 ↗</span>
+              <span class="lang-en block text-xs font-semibold text-emerald-700">AFCD: HK Species - Butterflies ↗</span>
+            </p>
+            <p class="text-xs text-slate-600 mt-1 lang-zh">官方香港蝴蝶名錄（249種）、6大科介紹、具保育價值品種及賞蝶地點。</p>
+            <p class="text-[11px] text-slate-500 mt-1 lang-en">Official checklist (249 species), 6 families overview, species of conservation concern, and key watching sites.</p>
+          </a>
+          <a href="https://butterfly.greenpower.org.hk/butterfly-commonbutterfly" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 transition block">
+            <p class="font-bold text-emerald-900">
+              <span class="lang-zh block">綠色力量「全城愛蝶」常見蝴蝶圖鑑 ↗</span>
+              <span class="lang-en block text-xs font-semibold text-emerald-700">Green Power: Common Butterflies in HK ↗</span>
+            </p>
+            <p class="text-xs text-slate-600 mt-1 lang-zh">提供鳳蝶、粉蝶、斑蝶、蛺蝶、灰蝶等常見品種高清圖片與特徵解說。</p>
+            <p class="text-[11px] text-slate-500 mt-1 lang-en">High-resolution photos and identification guides for common Swallowtails, Whites, Tigers, Nymphs, and Blues.</p>
+          </a>
+          <a href="https://www.lcsd.gov.hk/tc/green/butterfly/swallowtails.html" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 transition block">
+            <p class="font-bold text-emerald-900">
+              <span class="lang-zh block">康樂及文化事務署：香港市區公園的蝴蝶 ↗</span>
+              <span class="lang-en block text-xs font-semibold text-emerald-700">LCSD: Butterflies in Urban Parks ↗</span>
+            </p>
+            <p class="text-xs text-slate-600 mt-1 lang-zh">介紹香港公園等市區綠化空間常見的鳳蝶、粉蝶及蜜源植物。</p>
+            <p class="text-[11px] text-slate-500 mt-1 lang-en">Guide to Swallowtails, Pierids, and nectar plants found in Hong Kong Park and urban green spaces.</p>
+          </a>
+          <a href="https://bih.gov.hk/tc/species-database/index.html" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 transition block">
+            <p class="font-bold text-emerald-900">
+              <span class="lang-zh block">香港生物多樣性資訊站 (HKBIH) ↗</span>
+              <span class="lang-en block text-xs font-semibold text-emerald-700">HK Biodiversity Information Hub (HKBIH) ↗</span>
+            </p>
+            <p class="text-xs text-slate-600 mt-1 lang-zh">一站式香港動植物資料庫及《香港物種探索》期刊下載。</p>
+            <p class="text-[11px] text-slate-500 mt-1 lang-en">One-stop biodiversity platform with species records, multimedia resources, and Hong Kong Biodiversity newsletters.</p>
+          </a>
+          <a href="https://www.fungyuen.org/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 transition block">
+            <p class="font-bold text-emerald-900">
+              <span class="lang-zh block">環保協進會：鳳園蝴蝶保育區 ↗</span>
+              <span class="lang-en block text-xs font-semibold text-emerald-700">Fung Yuen Butterfly Reserve (TPYEA) ↗</span>
+            </p>
+            <p class="text-xs text-slate-600 mt-1 lang-zh">大埔鳳園谷生態教育中心、蝴蝶園計劃及導賞活動資訊。</p>
+            <p class="text-[11px] text-slate-500 mt-1 lang-en">Hong Kong's largest butterfly reserve in Tai Po holding over 200 species, offering eco-tours and school butterfly garden programs.</p>
+          </a>
+          <a href="https://www.kfbg.org/images/download/kfbg%20butterfly%20guide%202022-online%20sample.pdf" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 transition block">
+            <p class="font-bold text-emerald-900">
+              <span class="lang-zh block">嘉道理農場暨植物園蝴蝶指南 (PDF) ↗</span>
+              <span class="lang-en block text-xs font-semibold text-emerald-700">Kadoorie Farm & Botanic Garden Butterfly Guide (PDF) ↗</span>
+            </p>
+            <p class="text-xs text-slate-600 mt-1 lang-zh">介紹香港首個對公眾開放的室外蝴蝶園（1995年建立）與常見蝶種。</p>
+            <p class="text-[11px] text-slate-500 mt-1 lang-en">Features Hong Kong's first public outdoor butterfly garden (established in 1995) and bilingual species illustrations.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 3: BUTTERFLY CONSERVATION ==================== -->
+    <section id="page-conservation" class="space-y-8 hidden">
+      <div class="border-b border-slate-200 pb-5 space-y-1.5">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-md">
+          <span class="lang-zh">第 3 部分 · 蝴蝶保育專頁</span>
+          <span class="lang-en">Part 3 · Butterfly Conservation in Hong Kong</span>
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
+          <span class="lang-zh block">守護香港的「飛舞寶石」：香港蝴蝶保育資訊</span>
+          <span class="lang-en block text-lg sm:text-xl text-emerald-800 font-semibold">Protecting Hong Kong's "Flying Jewels": Butterfly Conservation</span>
+        </h2>
+        <p class="text-sm text-slate-600 lang-zh">
+          認識香港受法例保護的珍稀蝴蝶、重要保育熱點，以及學生在日常生活中可以實踐的保育行動。
+        </p>
+        <p class="text-xs sm:text-sm text-slate-500 lang-en">
+          Learn about legally protected rare butterfly species, key conservation hotspots in Hong Kong, and practical actions students can take every day.
+        </p>
+      </div>
+
+      <!-- Three Pillars of Conservation in HK -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Pillar 1: Legal Protection -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-xl">⚖️</div>
+          <h3 class="text-lg font-bold text-slate-900">
+            <span class="lang-zh block">法例保護與珍稀物種</span>
+            <span class="lang-en block text-sm font-semibold text-emerald-800">Legislative Protection & Rare Species</span>
+          </h3>
+          <p class="text-sm text-slate-700 leading-relaxed lang-zh">
+            根據<a href="https://www.afcd.gov.hk/tc_chi/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">漁護署保育措施資料</a>，本港體型最大的蝴蝶<strong>裳鳳蝶（<em>Troides helena</em>）</strong>及<strong>金裳鳳蝶（<em>Troides aeacus</em>，展翅可達 16 厘米）</strong>均屬極具保育價值的物種：
+          </p>
+          <p class="text-xs text-slate-600 leading-relaxed lang-en">
+            According to <a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">AFCD Conservation Measures</a>, Hong Kong's largest butterflies—the <strong>Common Birdwing (<em>Troides helena</em>)</strong> and <strong>Golden Birdwing (<em>Troides aeacus</em>, wingspan up to 16 cm)</strong>—are key species of conservation concern:
+          </p>
+          <ul class="text-xs text-slate-600 space-y-2.5 list-disc pl-4">
+            <li>
+              <span class="lang-zh block"><strong>《野生動物保護條例》（第170章）：</strong>嚴禁狩獵、故意干擾、管有或售賣<strong>裳鳳蝶</strong>。</span>
+              <span class="lang-en block text-[11px] text-slate-500"><strong>Wild Animals Protection Ordinance (Cap. 170):</strong> Protects the Common Birdwing from hunting, willful disturbance, possession, or sale.</span>
+            </li>
+            <li>
+              <span class="lang-zh block"><strong>《保護瀕危動植物物種條例》（第586章）：</strong>所有裳鳳蝶屬（<em>Troides</em> spp.）均列於附表1，規管其進出口及管有。</span>
+              <span class="lang-en block text-[11px] text-slate-500"><strong>Protection of Endangered Species of Animals and Plants Ordinance (Cap. 586):</strong> All Birdwings (<em>Troides</em> spp.) are listed under Schedule 1, regulating trade and possession.</span>
+            </li>
+            <li>
+              <span class="lang-zh block"><strong>寄主植物保護：</strong>裳鳳蝶幼蟲的唯一寄主植物<strong>印度馬兜鈴（<em>Aristolochia tagala</em>）</strong>，以及本港最小型鳳蝶「燕鳳蝶（<em>Lamproptera curius</em>）」幼蟲的寄主植物<strong>寬藥青藤（<em>Illigera celebica</em>）</strong>，均受《林區及郊區條例》（第96章）附屬《林務規例》保護。</span>
+              <span class="lang-en block text-[11px] text-slate-500"><strong>Host Plant Protection:</strong> Both <strong>Indian Birthwort (<em>Aristolochia tagala</em>)</strong> (host plant of Birdwings) and <strong>Illigera (<em>Illigera celebica</em>)</strong> (host plant of the White Dragontail, <em>Lamproptera curius</em>) are protected under the Forestry Regulations (Cap. 96).</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: Habitat Conservation & Protected Areas -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <div class="w-11 h-11 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center text-xl">🏞️</div>
+          <h3 class="text-lg font-bold text-slate-900">
+            <span class="lang-zh block">生境就地保育</span>
+            <span class="lang-en block text-sm font-semibold text-teal-800">Preserving Habitats for In-situ Conservation</span>
+          </h3>
+          <p class="text-sm text-slate-700 leading-relaxed lang-zh">
+            香港約 40% 土地已劃為郊野公園及特別地區。根據<a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">漁護署蝴蝶工作小組評估</a>，高達 <strong>99% 的本地蝴蝶物種</strong>曾在保護區系統內錄得：
+          </p>
+          <p class="text-xs text-slate-600 leading-relaxed lang-en">
+            About 40% of Hong Kong's land is designated as Country Parks and Special Areas. Assessments by the <a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">AFCD Butterfly Working Group</a> found that around <strong>99% of local butterfly species</strong> have been recorded within protected areas:
+          </p>
+          <ul class="text-xs text-slate-600 space-y-2.5 list-disc pl-4">
+            <li>
+              <span class="lang-zh block"><strong>大埔鳳園谷（SSSI）：</strong>於1980年列為「具特殊科學價值地點」，<a href="https://www.taipoea.org.hk/fungyuen" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">環保協進會</a>透過公私營合作管理協議計劃（獲<a href="https://cco.gov.hk/tc/ccfs-projects/management-agreement-on-the-private-land-with-high-conservation-value-at-fung-yuen-valley-site-of-special-scientific-interest-in-tai-po-hong-kong-2021-20242024-2027" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">鄉郊保育資助計劃</a>支持）進行生境管理，區內錄得超過200種蝴蝶。</span>
+              <span class="lang-en block text-[11px] text-slate-500"><strong>Fung Yuen Valley (SSSI):</strong> Designated as a Site of Special Scientific Interest in 1980 and managed by <a href="https://www.taipoea.org.hk/fungyuen" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">Environmental Association (TPYEA)</a> under a Management Agreement, home to over 200 butterfly species.</span>
+            </li>
+            <li>
+              <span class="lang-zh block"><strong>屯門小冷水越冬地：</strong>已修復的堆填區，是斑蝶亞科（主要是藍點紫斑蝶及幻紫斑蝶）的重要越冬地點，漁護署曾錄得約 32,000 至 45,000 隻斑蝶在此集體過冬。</span>
+              <span class="lang-en block text-[11px] text-slate-500"><strong>Siu Lang Shui Overwintering Site:</strong> A restored landfill in Tuen Mun where AFCD recorded 32,000–45,000 overwintering Crows and Tigers (Danainae).</span>
+            </li>
+            <li>
+              <span class="lang-zh block"><strong>大埔滘自然護理區及烏蛟騰：</strong>大埔滘錄得超過 150 種蝴蝶，是森林蝶種的重要棲息地。</span>
+              <span class="lang-en block text-[11px] text-slate-500"><strong>Tai Po Kau Nature Reserve & Wu Kau Tang:</strong> Over 150 butterfly species have been recorded by AFCD in Tai Po Kau's mature woodlands.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3: Threats & Campus Butterfly Gardens -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-xl">🌱</div>
+          <h3 class="text-lg font-bold text-slate-900">
+            <span class="lang-zh block">蝴蝶面臨的威脅與校園保育</span>
+            <span class="lang-en block text-sm font-semibold text-amber-800">Threats & School Butterfly Gardens</span>
+          </h3>
+          <p class="text-sm text-slate-700 leading-relaxed lang-zh">
+            城市化發展、生境破碎化、過量使用化學殺蟲劑、外來入侵植物（如薇甘菊）覆蓋原生植物，以及極端氣候熱浪（<a href="https://www.greenpower.org.hk/eng-press-release/green-powers-solar-terms-butterfly-phenological-survey-record-high-number-of-butterfly-species-in-18-years-heat-waves-change-emergence-patterns" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">綠色力量節氣蝴蝶調查</a>指出熱浪會改變蝴蝶羽化周期），均威脅本地蝴蝶生存。
+          </p>
+          <p class="text-xs text-slate-600 leading-relaxed lang-en">
+            Urbanization, habitat fragmentation, overuse of chemical pesticides, invasive climbers (like <em>Mikania micrantha</em>), and extreme heat waves (<a href="https://www.greenpower.org.hk/eng-press-release/green-powers-solar-terms-butterfly-phenological-survey-record-high-number-of-butterfly-species-in-18-years-heat-waves-change-emergence-patterns" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">Green Power's Solar Terms Butterfly Survey</a> notes heat waves alter emergence patterns) all threaten local butterflies.
+          </p>
+          <ul class="text-xs text-slate-600 space-y-2.5 list-disc pl-4">
+            <li>
+              <span class="lang-zh block"><strong>建立校園蝴蝶園：</strong>透過<a href="https://www.fungyuen.org/butterflygarden" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">鳳園蝴蝶園計劃</a>或校園綠化，同時種植成蟲喜愛的「蜜源植物」（如馬利筋、假連翹、五星花）及幼蟲所需的「寄主植物」，在市區建立生態踏腳石。</span>
+              <span class="lang-en block text-[11px] text-slate-500"><strong>School Butterfly Gardens:</strong> Through programs like the <a href="https://www.fungyuen.org/butterflygarden" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline">Fung Yuen Butterfly Garden Project</a>, planting both adult nectar plants (e.g., Lantana, Milkweed, Pentas) and larval host plants creates urban ecological stepping stones.</span>
+            </li>
+            <li>
+              <span class="lang-zh block"><strong>參與公民科學普查：</strong>參加綠色力量「蝴蝶普查員」或「全城愛蝶」活動，協助記錄本地蝴蝶分布。</span>
+              <span class="lang-en block text-[11px] text-slate-500"><strong>Citizen Science:</strong> Join Green Power's "Butterfly Care" and surveyor programs to help monitor local butterfly biodiversity.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Interactive Conservation Pledge & Field Code of Conduct -->
+      <div class="bg-gradient-to-br from-emerald-900 to-teal-900 rounded-2xl p-6 sm:p-8 text-white shadow-md">
+        <div class="max-w-3xl space-y-1">
+          <h3 class="text-xl sm:text-2xl font-bold">
+            🤝 <span class="lang-zh">觀蝶守則與學生保育承諾（互動勾選清單）</span>
+            <span class="lang-en text-base sm:text-lg text-emerald-200 block sm:inline sm:ml-2">Butterfly Watching Code & Student Conservation Pledge</span>
+          </h3>
+          <p class="text-sm text-emerald-100 lang-zh">
+            參考<a href="https://www.fungyuen.org/regulations" target="_blank" rel="noopener noreferrer" class="underline text-amber-300">鳳園蝴蝶保育區管理守則</a>及<a href="https://www.afcd.gov.hk/tc_chi/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="underline text-amber-300">漁護署觀蝶守則</a>，勾選以下 5 項保育承諾，成為合格的「香港護蝶大使」！
+          </p>
+          <p class="text-xs text-emerald-200/90 lang-en">
+            Based on the <a href="https://www.fungyuen.org/regulations" target="_blank" rel="noopener noreferrer" class="underline text-amber-300">Fung Yuen Reserve Regulations</a> and <a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="underline text-amber-300">AFCD Butterfly Watching Code</a>, check all 5 pledges below to become a certified "Hong Kong Butterfly Conservation Ambassador"!
+          </p>
+        </div>
+
+        <div id="pledgeList" class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 cursor-pointer transition">
+            <input type="checkbox" class="pledge-check mt-1 w-4 h-4 accent-amber-400 rounded" />
+            <span class="text-sm">
+              <span class="lang-zh block"><strong>絕不捕捉或干擾：</strong>在野外只用眼睛、望遠鏡和相機觀察，絕不捕捉蝴蝶或採集蝶卵、幼蟲和蝶蛹。</span>
+              <span class="lang-en block text-xs text-emerald-100 mt-0.5"><strong>Never Capture or Disturb:</strong> Observe only with eyes, binoculars, and cameras; never catch butterflies or collect eggs, caterpillars, or chrysalises.</span>
+            </span>
+          </label>
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 cursor-pointer transition">
+            <input type="checkbox" class="pledge-check mt-1 w-4 h-4 accent-amber-400 rounded" />
+            <span class="text-sm">
+              <span class="lang-zh block"><strong>愛護寄主及蜜源植物：</strong>不踐踏草叢、不採摘花朵或折斷樹枝，保護蝴蝶賴以為生的植物。</span>
+              <span class="lang-en block text-xs text-emerald-100 mt-0.5"><strong>Protect Host & Nectar Plants:</strong> Do not trample vegetation, pick flowers, or break branches that butterflies depend on for food and shelter.</span>
+            </span>
+          </label>
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 cursor-pointer transition">
+            <input type="checkbox" class="pledge-check mt-1 w-4 h-4 accent-amber-400 rounded" />
+            <span class="text-sm">
+              <span class="lang-zh block"><strong>拒絕買賣蝴蝶標本：</strong>不購買任何野生蝴蝶標本製品，遵守《保護瀕危動植物物種條例》。</span>
+              <span class="lang-en block text-xs text-emerald-100 mt-0.5"><strong>Refuse Butterfly Specimens:</strong> Never buy wild butterfly specimens or products, respecting the Protection of Endangered Species Ordinance.</span>
+            </span>
+          </label>
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 cursor-pointer transition">
+            <input type="checkbox" class="pledge-check mt-1 w-4 h-4 accent-amber-400 rounded" />
+            <span class="text-sm">
+              <span class="lang-zh block"><strong>減少使用化學農藥：</strong>在校園或家中種植植物時，避免使用化學殺蟲劑，以免毒害蝴蝶幼蟲。</span>
+              <span class="lang-en block text-xs text-emerald-100 mt-0.5"><strong>Avoid Chemical Pesticides:</strong> Refrain from using chemical insecticides in school or home gardens to avoid poisoning caterpillars and pollinators.</span>
+            </span>
+          </label>
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 cursor-pointer transition md:col-span-2">
+            <input type="checkbox" class="pledge-check mt-1 w-4 h-4 accent-amber-400 rounded" />
+            <span class="text-sm">
+              <span class="lang-zh block"><strong>實踐「自己垃圾自己帶走」：</strong>郊遊賞蝶時保持安靜，不留任何垃圾，維護大埔滘、鳳園及郊野公園的自然生境。</span>
+              <span class="lang-en block text-xs text-emerald-100 mt-0.5"><strong>Take Your Litter Home:</strong> Keep quiet in nature reserves and leave no trace in Tai Po Kau, Fung Yuen, and Country Parks.</span>
+            </span>
+          </label>
+        </div>
+
+        <div id="pledgeStatusBox" class="mt-5 p-4 rounded-xl bg-black/25 border border-white/15 flex items-center justify-between flex-wrap gap-3">
+          <p id="pledgeCountText" class="text-sm font-medium text-emerald-100">已完成 0 / 5 項護蝶承諾 · Completed 0 / 5 Pledges</p>
+          <span id="pledgeBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-white/20 text-white">請勾選上方守則 · Check the pledges above</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 4: 10-QUESTION MULTIPLE CHOICE QUIZ ==================== -->
+    <section id="page-quiz" class="space-y-6 hidden">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-5">
+        <div class="space-y-1">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100 px-2.5 py-1 rounded-md">
+            <span class="lang-zh">第 4 部分 · 蝴蝶知識小測驗</span>
+            <span class="lang-en">Part 4 · Butterfly Knowledge Quiz</span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
+            <span class="lang-zh block">香港蝴蝶與保育知識測試（共 10 題）</span>
+            <span class="lang-en block text-lg sm:text-xl text-amber-900 font-semibold">Hong Kong Butterflies & Conservation Quiz (10 Multiple-Choice Questions)</span>
+          </h2>
+          <p class="text-sm text-slate-600 lang-zh">
+            全部題目均根據本網站的蝴蝶介紹、額外知識及保育頁面內容設計。每題設有 4 個選項，請選出 1 個最佳答案！
+          </p>
+          <p class="text-xs sm:text-sm text-slate-500 lang-en">
+            All 10 questions are based on the species profiles, extra knowledge, and conservation pages on this site. Choose the 1 best answer out of 4 options for each question!
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-sm text-xs sm:text-sm">
+            <span class="lang-zh">已作答：</span><span class="lang-en">Answered: </span>
+            <span id="quizAnsweredCount" class="font-bold text-emerald-700">0</span> / 10
+          </div>
+          <button type="button" id="resetQuizBtn" class="px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs sm:text-sm font-semibold transition">
+            🔄 <span class="lang-zh">重新作答</span> <span class="lang-en">Reset Quiz</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz Result Banner (Hidden until submitted or all answered) -->
+      <div id="quizSummaryCard" class="hidden bg-gradient-to-r from-emerald-800 to-teal-800 text-white rounded-2xl p-6 shadow-lg">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <span id="quizGradeBadge" class="inline-block px-3 py-1 rounded-full bg-amber-400 text-slate-950 text-xs font-extrabold uppercase">測驗結果 · Quiz Result</span>
+            <h3 id="quizScoreTitle" class="text-2xl sm:text-3xl font-extrabold">你的得分：0 / 10 分 · Score: 0 / 10</h3>
+            <p id="quizFeedbackText" class="text-sm text-emerald-100"></p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" id="retryQuizFromBannerBtn" class="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm transition">
+              🔄 <span class="lang-zh">再挑戰一次</span> <span class="lang-en">Try Again</span>
+            </button>
+            <button type="button" id="reviewSpeciesBtn" class="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-sm border border-white/25 transition">
+              📖 <span class="lang-zh">返回重溫蝴蝶圖鑑</span> <span class="lang-en">Review Butterfly Guide</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Questions List Container -->
+      <div id="quizQuestionsContainer" class="space-y-5"></div>
+
+      <!-- 答錯題目清單 / Wrong Answers Breakdown (for student review & teacher coaching) -->
+      <div id="quizWrongSection" class="hidden bg-white rounded-2xl border border-amber-200 p-5 sm:p-6 shadow-sm space-y-3">
+        <div class="flex items-center gap-2 border-b border-amber-200 pb-3">
+          <span class="text-xl">📋</span>
+          <div>
+            <h3 class="text-lg font-bold text-amber-900">
+              <span class="lang-zh block">你的答錯題目與解析</span>
+              <span class="lang-en block text-sm font-semibold text-slate-700">Your Wrong Answers & Explanations</span>
+            </h3>
+            <p class="text-xs text-slate-600 mt-0.5">
+              <span class="lang-zh">老師會在儀表板看到這些記錄，針對答錯的題目為你輔導。</span>
+              <span class="lang-en">Your teacher can see these records in the dashboard and coach you on the topics you missed.</span>
+            </p>
+          </div>
+        </div>
+        <div id="quizWrongList" class="space-y-3"></div>
+      </div>
+
+      <!-- Submit All Button Bar -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div id="quizBottomHint" class="text-xs sm:text-sm text-slate-600">
+          <p class="lang-zh">💡 提示：點擊任何選項即可即時核對答案與詳解，或完成全部 10 題後點擊右側按鈕查看總成績單。</p>
+          <p class="lang-en">💡 Tip: Click any option for instant answer checking and bilingual explanations, or click the button on the right to calculate your final score.</p>
+        </div>
+        <button type="button" id="showFinalScoreBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow transition whitespace-nowrap">
+          📊 <span class="lang-zh">計算總分並查看評語</span> <span class="lang-en">Calculate Total Score</span>
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ==================== PAGE 5: 蝴蝶生長過程配對遊戲 ==================== -->
+    <section id="page-matching" class="space-y-6 hidden">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-5">
+        <div class="space-y-1">
+          <span class="text-xs font-bold uppercase tracking-wider text-violet-800 bg-violet-100 px-2.5 py-1 rounded-md">
+            <span class="lang-zh">第 5 部分 · 互動配對遊戲</span>
+            <span class="lang-en">Part 5 · Interactive Matching Game</span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
+            <span class="lang-zh block">蝴蝶生長過程配對：把詞語拖到正確的圖畫上！</span>
+            <span class="lang-en block text-lg sm:text-xl text-violet-800 font-semibold">Butterfly Life Cycle Matching: Drag Each Term onto the Right Picture!</span>
+          </h2>
+          <p class="text-sm text-slate-600 lang-zh">
+            拖曳（或點擊）左邊的詞語卡到右邊對應的圖畫上。配對成功會顯示該階段的生態小知識，完成全部配對即可得分！
+          </p>
+          <p class="text-xs sm:text-sm text-slate-500 lang-en">
+            Drag (or tap) each term card on the left onto the matching picture on the right. Correct matches reveal ecological facts about that stage — finish all pairs to score!
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <div id="matchDifficulty" class="inline-flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200">
+            <button type="button" data-size="4" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-700 transition">4</button>
+            <button type="button" data-size="6" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-violet-600 text-white rounded-lg transition">6</button>
+            <button type="button" data-size="8" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-700 transition">8</button>
+          </div>
+          <button type="button" id="matchRestartBtn" class="px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs sm:text-sm font-semibold transition">
+            🔄 <span class="lang-zh">重新開始</span> <span class="lang-en">Restart</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 記分板 / Scoreboard -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="stat-card text-center py-3">
+          <p class="text-[11px] text-slate-500"><span class="lang-zh">已配對</span><span class="lang-en">Matched</span></p>
+          <p id="matchScore" class="text-xl font-extrabold text-violet-700">0 / 6</p>
+        </div>
+        <div class="stat-card text-center py-3">
+          <p class="text-[11px] text-slate-500"><span class="lang-zh">用時</span><span class="lang-en">Time</span></p>
+          <p id="matchTimer" class="text-xl font-extrabold text-emerald-700">00:00</p>
+        </div>
+        <div class="stat-card text-center py-3">
+          <p class="text-[11px] text-slate-500"><span class="lang-zh">嘗試次數</span><span class="lang-en">Attempts</span></p>
+          <p id="matchAttempts" class="text-xl font-extrabold text-amber-700">0</p>
+        </div>
+      </div>
+
+      <!-- 遊戲主區 / Game board -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 詞語卡區 / Term cards -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 mb-3 flex items-center gap-2">
+            <span>🧷</span>
+            <span class="lang-zh">詞語卡（拖曳或點擊選取）</span>
+            <span class="lang-en text-sm font-semibold text-slate-600">Term Cards (drag or tap)</span>
+          </h3>
+          <div id="matchTerms" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        </div>
+
+        <!-- 圖畫區 / Picture drop zones -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 mb-3 flex items-center gap-2">
+            <span>🖼️</span>
+            <span class="lang-zh">圖畫（放上正確的詞語）</span>
+            <span class="lang-en text-sm font-semibold text-slate-600">Pictures (drop the right term here)</span>
+          </h3>
+          <div id="matchBoard" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+        </div>
+      </div>
+
+      <!-- 生態小知識 / Stage fact panel -->
+      <div id="matchStageInfo" class="hidden bg-emerald-50/80 border border-emerald-200 rounded-2xl p-5"></div>
+
+      <!-- 完成訊息 / Completion banner -->
+      <div id="matchResultCard" class="hidden bg-gradient-to-r from-violet-700 to-fuchsia-700 text-white rounded-2xl p-6 shadow-lg">
+        <div id="matchResultBody"></div>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 6: AI 蝴蝶導師 ==================== -->
+    <section id="page-chatbot" class="space-y-6 hidden">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-5">
+        <div class="space-y-1">
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-800 bg-sky-100 px-2.5 py-1 rounded-md">
+            <span class="lang-zh">第 6 部分 · AI 學習夥伴</span>
+            <span class="lang-en">Part 6 · AI Learning Buddy</span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
+            <span class="lang-zh block">問問「小蝶」：你的 AI 蝴蝶生態導師</span>
+            <span class="lang-en block text-lg sm:text-xl text-sky-800 font-semibold">Ask "Little Butterfly": Your AI Butterfly & Ecology Tutor</span>
+          </h2>
+          <p class="text-sm text-slate-600 lang-zh">
+            小蝶只會回答與 <strong>蝴蝶和生態環境</strong> 有關的問題。關於其他範疇的問題，小蝶會禮貌地婉拒並引導你回到蝴蝶主題。
+          </p>
+          <p class="text-xs sm:text-sm text-slate-500 lang-en">
+            Little Butterfly answers questions about <strong>butterflies and ecology</strong> only. Questions on other topics are politely declined, and the tutor steers you back to butterflies.
+          </p>
+        </div>
+      </div>
+
+      <div id="chatStatusBanner" class="hidden"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- 對話區 / Chat area -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="chat-shell">
+            <div class="px-4 py-3 bg-gradient-to-r from-sky-600 to-emerald-600 text-white flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-xl">🦋</span>
+                <div>
+                  <p class="font-bold text-sm leading-tight">小蝶 <span class="lang-en">· Little Butterfly</span></p>
+                  <p class="text-[10px] text-sky-100 leading-tight">
+                    <span class="lang-zh">只談蝴蝶與生態的 AI 導師</span>
+                    <span class="lang-en">AI tutor for butterflies & ecology</span>
+                  </p>
+                </div>
+              </div>
+              <span class="text-[10px] bg-white/20 px-2 py-1 rounded-full font-semibold">AI</span>
+            </div>
+
+            <div id="chatLog" class="chat-log scroll-area"></div>
+
+            <form id="chatForm" class="p-3 border-t border-slate-200 bg-white flex gap-2">
+              <input
+                type="text"
+                id="chatInput"
+                placeholder="輸入你的問題… / Type your question…"
+                autocomplete="off"
+                maxlength="300"
+                class="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 bg-slate-50"
+              />
+              <button type="submit" id="chatSendBtn" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition whitespace-nowrap">
+                <span class="lang-zh">送出</span><span class="lang-en">Send</span> ➤
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- 側欄 / Sidebar -->
+        <div class="space-y-4">
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h3 class="text-base font-bold text-slate-900 mb-1">💡 <span class="lang-zh">快速提問</span><span class="lang-en">Quick Questions</span></h3>
+            <p class="text-xs text-slate-500 mb-3">
+              <span class="lang-zh">點一下就開始提問！</span>
+              <span class="lang-en">Click to ask straight away!</span>
+            </p>
+            <div id="chatQuickQuestions" class="flex flex-wrap gap-2">
+              <button type="button" data-q="蝴蝶有甚麼不同的生長階段？" class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 text-emerald-800 text-xs font-semibold hover:bg-emerald-50 transition">🦋 蝴蝶的生長階段</button>
+              <button type="button" data-q="為甚麼要先種花才能見到蝴蝶？" class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 text-emerald-800 text-xs font-semibold hover:bg-emerald-50 transition">🌸 種花吸引蝴蝶</button>
+              <button type="button" data-q="香港有哪些受保護的珍稀蝴蝶？" class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 text-emerald-800 text-xs font-semibold hover:bg-emerald-50 transition">⚖️ 受保護的蝴蝶</button>
+              <button type="button" data-q="蝴蝶怎樣幫植物傳粉？" class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 text-emerald-800 text-xs font-semibold hover:bg-emerald-50 transition">🌿 蝴蝶傳粉</button>
+              <button type="button" data-q="毛毛蟲只吃哪一種植物？" class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 text-emerald-800 text-xs font-semibold hover:bg-emerald-50 transition">🐛 寄主植物</button>
+              <button type="button" data-q="我可以幫香港的蝴蝶做甚麼？" class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 text-emerald-800 text-xs font-semibold hover:bg-emerald-50 transition">🛡️ 我能做的保育</button>
+            </div>
+          </div>
+
+          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5">
+            <h3 class="text-base font-bold text-amber-900 mb-2">🚦 <span class="lang-zh">小蝶的守則</span><span class="lang-en">Little Butterfly's Rules</span></h3>
+            <ul class="text-xs text-amber-950 space-y-2 leading-relaxed">
+              <li>✅ <span class="lang-zh">可以問：蝴蝶種類、生長過程、寄主植物、棲地、授粉、保育法例、賞蝶方法</span><span class="lang-en">Can ask: species, life cycle, host plants, habitats, pollination, conservation laws, watching tips</span></li>
+              <li>❌ <span class="lang-zh">不會回答：數學、作文、其他科目、娛樂等範疇</span><span class="lang-en">Won't answer: maths, essays, other subjects, entertainment</span></li>
+              <li>🔒 <span class="lang-zh">所有問題都會經過範圍檢查</span><span class="lang-en">Every question is scope-checked on the server</span></li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h3 class="text-base font-bold text-slate-900 mb-2">🌳 <span class="lang-zh">延伸閱讀</span><span class="lang-en">Further Reading</span></h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <span class="lang-zh">想看更多？前往「參考資訊與額外知識」及「蝴蝶保育專頁」，有漁護署、綠色力量、康文署的權威資料。</span>
+              <span class="lang-en">Want more? Visit the Resources and Conservation pages for authoritative material from AFCD, Green Power and LCSD.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Species Detail Modal -->
+  <div id="speciesModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200">
+      <div class="relative h-56 sm:h-64 bg-slate-900">
+        <img id="modalImg" src="" alt="" class="w-full h-full object-cover" />
+        <button type="button" id="closeModalBtn" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center font-bold text-lg transition" aria-label="關閉 Close">
+          ✕
+        </button>
+        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 text-white">
+          <span id="modalFamily" class="text-xs font-semibold px-2.5 py-0.5 rounded bg-emerald-600"></span>
+          <h3 id="modalTitle" class="text-2xl font-bold mt-1"></h3>
+          <p id="modalSciName" class="text-xs italic text-emerald-200"></p>
+        </div>
+      </div>
+      <div class="p-6 space-y-4 text-sm text-slate-700">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+          <div>
+            <span class="text-xs text-slate-500 block">展翅寬度 · Wingspan</span>
+            <strong id="modalWingspan" class="text-slate-900"></strong>
+          </div>
+          <div>
+            <span class="text-xs text-slate-500 block">幼蟲寄主與習性 · Host Plants & Habits</span>
+            <strong id="modalHost" class="text-slate-900 text-xs sm:text-sm block"></strong>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-900 mb-1">🔍 外觀與辨識特徵 · Appearance & Identification</h4>
+          <div id="modalAppearance" class="leading-relaxed space-y-1.5"></div>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-900 mb-1">💡 額外生態知識 · Extra Ecological Knowledge</h4>
+          <div id="modalExtra" class="leading-relaxed bg-emerald-50/70 p-3.5 rounded-xl border border-emerald-100 text-emerald-950 space-y-1.5"></div>
+        </div>
+        <div class="pt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
+          <div id="modalLinks" class="flex flex-wrap gap-2"></div>
+          <button type="button" id="modalCloseBottomBtn" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold text-xs transition">
+            關閉視窗 · Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification for Share Link -->
+  <div id="toastNotice" class="fixed bottom-5 right-5 z-50 hidden bg-slate-900 text-white px-4 py-3 rounded-xl shadow-lg border border-slate-700 text-sm flex items-center gap-2">
+    <span>✅</span>
+    <span id="toastText">已複製中英雙語網站資訊與連結！ / Copied bilingual website info & link!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div class="space-y-1">
+        <p class="lang-zh">🦋 蝶舞香港：香港常見蝴蝶探索與保育教育網 · 資料來源：<a href="https://www.afcd.gov.hk/tc_chi/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-700">漁農自然護理署</a>、<a href="https://butterfly.greenpower.org.hk/butterfly-commonbutterfly" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-700">綠色力量「全城愛蝶」</a>、<a href="https://www.lcsd.gov.hk/tc/green/butterfly/swallowtails.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-700">康樂及文化事務署</a>及<a href="https://www.fungyuen.org/" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-700">鳳園蝴蝶保育區</a></p>
+        <p class="lang-en">🦋 Butterflies of Hong Kong Eco-Education Portal · Sources: <a href="https://www.afcd.gov.hk/english/conservation/hkbiodiversity/speciesgroup/speciesgroup_butterflies.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-700">AFCD</a>, <a href="https://butterfly.greenpower.org.hk/eng/butterfly-commonbutterfly" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-700">Green Power</a>, <a href="https://hkp.lcsd.gov.hk/en/facilities/conservation-corner" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-700">LCSD</a> & <a href="https://www.fungyuen.org/" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-700">Fung Yuen Butterfly Reserve</a></p>
+      </div>
+      <div class="flex gap-4">
+        <button type="button" data-footer-tab="species" class="hover:text-emerald-700 underline">常見蝴蝶 / Species</button>
+        <button type="button" data-footer-tab="resources" class="hover:text-emerald-700 underline">額外知識 / Resources</button>
+        <button type="button" data-footer-tab="conservation" class="hover:text-emerald-700 underline">蝴蝶保育 / Conservation</button>
+        <button type="button" data-footer-tab="quiz" class="hover:text-emerald-700 underline">10題測驗 / Quiz</button>
+        <button type="button" data-footer-tab="matching" class="hover:text-emerald-700 underline">配對遊戲 / Matching</button>
+        <button type="button" data-footer-tab="chatbot" class="hover:text-emerald-700 underline">AI 導師 / AI Tutor</button>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==================== 登入視窗 / Auth Overlay ==================== -->
+  <div id="authOverlay" class="auth-overlay hidden">
+    <div class="auth-card">
+      <div class="relative bg-gradient-to-r from-emerald-700 to-teal-700 px-5 py-4 text-white">
+        <button type="button" id="authCloseBtn" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/25 hover:bg-black/40 text-white flex items-center justify-center font-bold transition" aria-label="關閉 Close">✕</button>
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">🦋</span>
+          <div>
+            <h2 class="font-extrabold text-lg leading-tight">
+              <span class="lang-zh">蝶舞香港 · 登入</span>
+              <span class="lang-en">Butterflies of HK · Log In</span>
+            </h2>
+            <p class="text-xs text-emerald-100">
+              <span class="lang-zh">登入後你的測驗成績會被記錄，老師可以針對你答錯的題目輔導。</span>
+              <span class="lang-en">Log in so your quiz scores are recorded and your teacher can coach you.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex border-b border-slate-200">
+        <button type="button" data-auth-tab="student" class="auth-tab active">🎒 <span class="lang-zh">學生</span><span class="lang-en">Student</span></button>
+        <button type="button" data-auth-tab="teacher" class="auth-tab">👩‍🏫 <span class="lang-zh">教師</span><span class="lang-en">Teacher</span></button>
+      </div>
+
+      <!-- 學生註冊 / Student sign-up -->
+      <form id="studentAuthForm" data-mode="student" class="p-5 space-y-3.5">
+        <div data-auth-error class="auth-error hidden"></div>
+        <div>
+          <label for="studentUsername" class="block text-xs font-bold text-slate-700 mb-1.5">
+            <span class="lang-zh">暱稱（登入帳號）</span><span class="lang-en">Nickname (your login name)</span>
+          </label>
+          <input type="text" id="studentUsername" name="username" required maxlength="24" autocomplete="username" class="auth-input" placeholder="例：陳大文" />
+        </div>
+        <div>
+          <label for="studentDisplayName" class="block text-xs font-bold text-slate-700 mb-1.5">
+            <span class="lang-zh">顯示名稱（選填）</span><span class="lang-en">Display name (optional)</span>
+          </label>
+          <input type="text" id="studentDisplayName" name="displayName" maxlength="24" class="auth-input" placeholder="例：陳大文（6A班）" />
+        </div>
+        <div>
+          <label for="studentPassword" class="block text-xs font-bold text-slate-700 mb-1.5">
+            <span class="lang-zh">密碼（最少 6 個字元）</span><span class="lang-en">Password (min. 6 characters)</span>
+          </label>
+          <input type="password" id="studentPassword" name="password" required minlength="6" autocomplete="new-password" class="auth-input" placeholder="••••••" />
+        </div>
+        <button type="submit" class="auth-btn">🎒 <span class="lang-zh">建立學生帳號並開始</span><span class="lang-en">Create Student Account & Start</span></button>
+        <p class="text-[10px] text-slate-500 text-center leading-relaxed">
+          <span class="lang-zh">首次使用會自動建立新帳號；之後用同一個暱稱和密碼登入即可。</span>
+          <span class="lang-en">A new account is created on first use. Log in with the same nickname and password next time.</span>
+        </p>
+      </form>
+
+      <!-- 教師登入 / Teacher sign-in -->
+      <form id="teacherAuthForm" data-mode="teacher" class="p-5 space-y-3.5 hidden">
+        <div data-auth-error class="auth-error hidden"></div>
+        <div>
+          <label for="teacherEmail" class="block text-xs font-bold text-slate-700 mb-1.5">
+            <span class="lang-zh">教師電郵</span><span class="lang-en">Teacher email</span>
+          </label>
+          <input type="email" id="teacherEmail" name="teacherEmail" required class="auth-input" placeholder="teacher@example.com" />
+        </div>
+        <div>
+          <label for="teacherPassword" class="block text-xs font-bold text-slate-700 mb-1.5">
+            <span class="lang-zh">密碼</span><span class="lang-en">Password</span>
+          </label>
+          <input type="password" id="teacherPassword" name="teacherPassword" required class="auth-input" placeholder="••••••" />
+        </div>
+        <button type="submit" class="auth-btn">👩‍🏫 <span class="lang-zh">老師登入</span><span class="lang-en">Teacher Sign In</span></button>
+        <p class="text-[10px] text-slate-500 text-center leading-relaxed">
+          <span class="lang-zh">教師帳號由學校管理員在系統內預先建立，學生不能自行註冊為教師。</span>
+          <span class="lang-en">Teacher accounts are pre-created by the administrator. Students cannot register as teachers.</span>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Supabase JS（本地載入，課室網絡較穩陣）/ Supabase JS (vendored locally for reliability) -->
+  <script src="vendor/supabase/supabase.js"></script>
+
+  <!-- ==================== 模組載入 / Module loading ==================== -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

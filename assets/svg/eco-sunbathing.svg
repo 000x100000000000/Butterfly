@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="日光浴 / Sunbathing">
+  <defs>
+    <radialGradient id="sbSun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="55%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </radialGradient>
+    <linearGradient id="sbWing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <!-- 太陽 / sun -->
+  <circle cx="26" cy="26" r="17" fill="url(#sbSun)"/>
+  <g stroke="#fbbf24" stroke-width="3.2" stroke-linecap="round">
+    <path d="M26 2 L26 8"/><path d="M26 44 L26 50"/>
+    <path d="M2 26 L8 26"/><path d="M44 26 L50 26"/>
+    <path d="M9 9 L13.5 13.5"/><path d="M39 39 L43.5 43.5"/>
+    <path d="M43 9 L38.5 13.5"/><path d="M13.5 38.5 L9 43"/>
+  </g>
+  <!-- 葉片 / leaf -->
+  <path d="M12 106 Q40 84 110 92 Q88 112 42 110 Q20 110 12 106 Z" fill="#4ade80" stroke="#166534" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M24 104 Q58 94 102 96" stroke="#166534" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- 張開雙翅的蝴蝶（停棲曬太陽） / butterfly basking with wings spread -->
+  <g transform="translate(62,72)">
+    <path d="M-3 -4 Q-30 -26 -38 -4 Q-34 12 -6 12 Z" fill="url(#sbWing)" stroke="#92400e" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M3 -4 Q30 -26 38 -4 Q34 12 6 12 Z" fill="url(#sbWing)" stroke="#92400e" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M-4 -6 Q-24 -14 -30 -2" stroke="#fffbeb" stroke-width="1.6" fill="none" opacity="0.6"/>
+    <path d="M4 -6 Q24 -14 30 -2" stroke="#fffbeb" stroke-width="1.6" fill="none" opacity="0.6"/>
+    <circle cx="-26" cy="-2" r="3.4" fill="#1c1917" opacity="0.6"/>
+    <circle cx="26" cy="-2" r="3.4" fill="#1c1917" opacity="0.6"/>
+    <ellipse cx="0" cy="2" rx="5" ry="16" fill="#1c1917"/>
+    <path d="M-3 -12 Q-8 -20 -9 -25" stroke="#1c1917" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M3 -12 Q8 -20 9 -25" stroke="#1c1917" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- 熱力線 / heat lines -->
+  <g stroke="#fbbf24" stroke-width="2.4" stroke-linecap="round" opacity="0.85">
+    <path d="M46 44 Q50 40 46 36"/>
+    <path d="M78 44 Q82 40 78 36"/>
+  </g>
+</svg>

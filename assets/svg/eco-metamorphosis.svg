@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="完全變態 / Complete metamorphosis">
+  <defs>
+    <marker id="mmArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#059669"/>
+    </marker>
+  </defs>
+  <circle cx="60" cy="60" r="38" fill="none" stroke="#a7f3d0" stroke-width="10"/>
+  <path d="M60 22 A38 38 0 0 1 96 46" fill="none" stroke="#059669" stroke-width="10" stroke-linecap="round" marker-end="url(#mmArrow)"/>
+  <path d="M98 74 A38 38 0 0 1 64 98" fill="none" stroke="#059669" stroke-width="10" stroke-linecap="round" marker-end="url(#mmArrow)"/>
+  <path d="M36 92 A38 38 0 0 1 24 60" fill="none" stroke="#059669" stroke-width="10" stroke-linecap="round" marker-end="url(#mmArrow)"/>
+  <!-- 卵 / egg -->
+  <ellipse cx="60" cy="60" rx="9" ry="11" fill="#fde047" stroke="#a16207" stroke-width="2"/>
+  <!-- 幼蟲 / larva -->
+  <path d="M46 44 Q54 36 64 40 Q70 46 62 52 Q52 56 46 50 Z" fill="#65a30d" stroke="#365314" stroke-width="2"/>
+  <!-- 蛹 / pupa -->
+  <path d="M80 70 Q88 74 88 84 Q88 93 80 96 Q72 93 72 84 Q72 76 80 70 Z" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+  <!-- 成蟲 / adult -->
+  <path d="M42 80 Q32 68 28 76 Q28 86 40 88 Z" fill="#059669" stroke="#065f46" stroke-width="1.8"/>
+  <path d="M50 80 Q60 68 64 76 Q64 86 52 88 Z" fill="#059669" stroke="#065f46" stroke-width="1.8"/>
+  <ellipse cx="46" cy="82" rx="2.6" ry="8" fill="#0f172a"/>
+</svg>

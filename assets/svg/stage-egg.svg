@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="蝴蝶卵 / Butterfly egg">
+  <defs>
+    <radialGradient id="eggGrad" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="45%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+  </defs>
+  <!-- 葉片 / leaf -->
+  <path d="M8 96 Q34 66 112 74 Q92 112 40 108 Q18 106 8 96 Z" fill="url(#leafGrad)" stroke="#166534" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M20 100 Q56 86 104 78" stroke="#166534" stroke-width="1.6" fill="none" opacity="0.55"/>
+  <path d="M40 88 L38 74 M62 83 L60 70 M82 79 L80 68" stroke="#166534" stroke-width="1.2" opacity="0.4"/>
+  <!-- 卵 / egg -->
+  <ellipse cx="60" cy="72" rx="13" ry="16" fill="url(#eggGrad)" stroke="#a16207" stroke-width="2"/>
+  <ellipse cx="56" cy="66" rx="4" ry="5.5" fill="#ffffff" opacity="0.65"/>
+  <path d="M52 62 Q60 58 68 62" stroke="#fef08a" stroke-width="1.6" fill="none" opacity="0.85"/>
+</svg>

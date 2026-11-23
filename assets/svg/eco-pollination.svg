@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="授粉 / Pollination">
+  <defs>
+    <linearGradient id="plPetal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbcfe8"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <!-- 花莖 / stem -->
+  <path d="M60 108 L60 66" stroke="#15803d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M60 92 Q42 88 36 74 Q54 74 60 92 Z" fill="#4ade80" stroke="#166534" stroke-width="2"/>
+  <!-- 花瓣 / petals -->
+  <g>
+    <ellipse cx="60" cy="34" rx="9" ry="16" fill="url(#plPetal)" stroke="#be185d" stroke-width="1.8"/>
+    <ellipse cx="60" cy="66" rx="9" ry="16" fill="url(#plPetal)" stroke="#be185d" stroke-width="1.8" opacity="0.85"/>
+    <ellipse cx="42" cy="50" rx="16" ry="9" fill="url(#plPetal)" stroke="#be185d" stroke-width="1.8" opacity="0.9"/>
+    <ellipse cx="78" cy="50" rx="16" ry="9" fill="url(#plPetal)" stroke="#be185d" stroke-width="1.8" opacity="0.9"/>
+    <ellipse cx="48" cy="40" rx="12" ry="8" fill="url(#plPetal)" stroke="#be185d" stroke-width="1.6" opacity="0.75"/>
+    <ellipse cx="72" cy="40" rx="12" ry="8" fill="url(#plPetal)" stroke="#be185d" stroke-width="1.6" opacity="0.75"/>
+    <circle cx="60" cy="50" r="12" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
+  </g>
+  <!-- 花粉粒 / pollen grains -->
+  <circle cx="52" cy="47" r="2.6" fill="#92400e"/>
+  <circle cx="68" cy="52" r="2.6" fill="#92400e"/>
+  <circle cx="60" cy="43" r="2.2" fill="#92400e"/>
+  <!-- 授粉的小蝴蝶 / pollinating butterfly -->
+  <g transform="translate(88,86) rotate(-15)">
+    <path d="M0 0 Q-13 -11 -16 -2 Q-13 7 0 8 Z" fill="#059669" stroke="#065f46" stroke-width="1.6"/>
+    <path d="M2 0 Q15 -11 18 -2 Q15 7 2 8 Z" fill="#059669" stroke="#065f46" stroke-width="1.6"/>
+    <ellipse cx="1" cy="3" rx="2.6" ry="8" fill="#0f172a"/>
+  </g>
+  <!-- 飛行路線 / flight path -->
+  <path d="M78 84 Q68 74 74 64" stroke="#f59e0b" stroke-width="2" fill="none" stroke-dasharray="4 4" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="蝴蝶幼蟲（毛毛蟲）/ Butterfly caterpillar (larva)">
+  <defs>
+    <linearGradient id="larvaGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a3e635"/>
+      <stop offset="50%" stop-color="#65a30d"/>
+      <stop offset="100%" stop-color="#3f6212"/>
+    </linearGradient>
+    <linearGradient id="lLeafGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+  </defs>
+  <!-- 枝葉 / twig & leaf -->
+  <path d="M6 100 Q40 96 114 102" stroke="#92400e" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M92 100 Q112 76 96 60 Q74 74 92 100 Z" fill="url(#lLeafGrad)" stroke="#166534" stroke-width="2"/>
+  <path d="M92 96 Q96 80 96 66" stroke="#166534" stroke-width="1.3" fill="none" opacity="0.6"/>
+  <!-- 幼蟲身體 / larva body -->
+  <path d="M22 82 Q30 62 48 60 Q64 58 74 64 Q86 70 90 82 Q94 94 82 96 Q52 99 30 94 Q20 91 22 82 Z"
+        fill="url(#larvaGrad)" stroke="#365314" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- 體節 / segments -->
+  <path d="M38 63 Q34 80 38 95" stroke="#365314" stroke-width="1.6" fill="none" opacity="0.55"/>
+  <path d="M54 60 Q51 79 54 97" stroke="#365314" stroke-width="1.6" fill="none" opacity="0.55"/>
+  <path d="M70 63 Q68 80 70 96" stroke="#365314" stroke-width="1.6" fill="none" opacity="0.55"/>
+  <!-- 背線 / dorsal stripe -->
+  <path d="M28 78 Q56 71 88 80" stroke="#ecfccb" stroke-width="3.2" fill="none" opacity="0.85" stroke-linecap="round"/>
+  <!-- 頭部 / head -->
+  <circle cx="90" cy="76" r="10" fill="#4d7c0f" stroke="#365314" stroke-width="2.5"/>
+  <circle cx="94" cy="72" r="2.4" fill="#1a2e05"/>
+  <!-- 觸角 / antennae -->
+  <path d="M97 67 Q104 60 103 54" stroke="#365314" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M88 66 Q92 57 90 52" stroke="#365314" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <circle cx="103" cy="53" r="2" fill="#365314"/>
+  <circle cx="90" cy="51" r="2" fill="#365314"/>
+  <!-- 足 / prolegs -->
+  <path d="M38 95 L36 102 M54 97 L53 103 M70 96 L70 102" stroke="#365314" stroke-width="2" stroke-linecap="round"/>
+</svg>
